@@ -2,9 +2,6 @@ version: '2'
 services:
   todo:
     build: .
-    links:
-      - postgres
-      - redis
     volumes:
       - .:/todo
     depends_on:
