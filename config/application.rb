@@ -18,8 +18,7 @@ module Todo
 
       # Since we're using Redis to back our cache store.
       # This keeps our application stateless as well.
-      config.cache_store = :redis_store, ENV['CACHE_URL'],
-                           { namespace: 'todo::cache' }
+      config.cache_store = :redis_store, ENV['CACHE_URL'], { namespace: 'todo::cache' }
     end
   end
 end

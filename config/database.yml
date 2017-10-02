@@ -1,11 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['POSTGRES_HOST'] %>
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  pool: 5
+
 development:
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_development?') %>
+  <<: *default
+  database: <%= ENV['POSTGRES_DB'] + '_development' %>
 
 test:
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_test?') %>
-
-staging:
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_staging?') %>
+  <<: *default
+  database: <%= ENV['POSTGRES_DB'] + '_test' %>
 
 production:
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_production?') %>
+  <<: *default
+  database: <%= ENV['POSTGRES_DB'] + '_production' %>
