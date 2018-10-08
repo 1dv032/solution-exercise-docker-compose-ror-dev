@@ -4,7 +4,7 @@ This repo is a solution proposal for the exercise https://github.com/1dv032/exer
 
 How to get it running:
 ```bash
-docker-compose run todo rake db:setup
+docker-compose run app rake db:setup
 docker-compose up
 ```
 
